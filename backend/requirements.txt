@@ -11,3 +11,4 @@ bcrypt==4.1.2
 torch==2.10.0
 torchvision==0.25.0
 google-genai>=0.6.0
+gunicorn
