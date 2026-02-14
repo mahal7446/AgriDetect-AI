@@ -1,0 +1,47 @@
+
+--- Latest 10 Scan Records ---
+python : Traceback 
+(most recent call 
+last):
+At line:1 char:1
++ python backend/insp
+ect_db.py > backend/i
+nspect_backend_output
+.txt 2>& ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (Traceba   
+ ck (most recent     
+call last)::Stri    
+ng) [], RemoteEx    
+ception
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+  File "C:\Users\maha
+l\Agri-Trail\backend\
+inspect_db.py", line 
+19, in <module>
+    query_db()
+  File "C:\Users\maha
+l\Agri-Trail\backend\
+inspect_db.py", line 
+11, in query_db
+    cursor.execute("S
+ELECT id, 
+user_email, 
+disease_name, 
+crop_name, 
+risk_level, 
+health_status, 
+scan_date FROM 
+scan_history ORDER 
+BY id DESC LIMIT 10")
+sqlite3.OperationalEr
+ror: no such column: 
+risk_level

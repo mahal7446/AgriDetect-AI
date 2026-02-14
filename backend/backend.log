@@ -1,0 +1,299 @@
+C:\Users\tapaj\AppData\Local\Programs\Python\Python310\lib\site-packages\google\api_core\_python_version_support.py:275: FutureWarning: You are using a Python version (3.10.11) which Google will stop supporting in new releases of google.api_core once it reaches its end of life (2026-10-04). Please upgrade to the latest Python version, or at least Python 3.11, to continue receiving updates for google.api_core past that date.
+  warnings.warn(message, FutureWarning)
+D:\model\MVP_Trail-main\backend\chat_service.py:7: FutureWarning: 
+
+All support for the `google.generativeai` package has ended. It will no longer be receiving 
+updates or bug fixes. Please switch to the `google.genai` package as soon as possible.
+See README for more details:
+
+https://github.com/google-gemini/deprecated-generative-ai-python/blob/main/README.md
+
+  import google.generativeai as genai
+Database initialized successfully
+[OK] Database initialized
+[INFO] Starting model loading in background...
+[OK] Loaded class labels for 4 models
+[OK] Loaded crop classifier labels: ['blackgram', 'corn', 'cotton', 'potato', 'pumpkin', 'rice', 'tomato', 'wheat']
+[OK] Loaded crop classifier labels: ['blackgram', 'corn', 'cotton', 'potato', 'pumpkin', 'rice', 'tomato', 'wheat']
+
+Loading models...
+[WARNING] crop_classifier.h5 not found
+[WARNING] crop_classifier_backup.h5 not found
+[OK] Crop Classifier (Stage 1) loaded from crop_classifier_new.h5
+
+Loading disease detection models (Stage 2)...
+[OK] Model 1 (Rice & Potato) loaded
+[OK] Model 2 (Corn & Blackgram) loaded
+[OK] Model 3 (Tomato & Cotton) loaded
+[ERROR] Failed to load Keras 3.0 model: File format not supported: filepath=D:\model\MVP_Trail-main\backend\models\Model4(Wheat and Pumpkin). Keras 3 only supports V3 `.keras` files and legacy H5 format files (`.h5` extension). Note that the legacy SavedModel format is not supported by `load_model()` in Keras 3. In order to reload a TensorFlow SavedModel as an inference-only layer in Keras 3, use `keras.layers.TFSMLayer(D:\model\MVP_Trail-main\backend\models\Model4(Wheat and Pumpkin), call_endpoint='serving_default')` (note that your `call_endpoint` might have a different name).
+[OK] Model 4 (Wheat & Pumpkin) - Old model loaded
+
+Total models loaded: 5/5
+
+
+[OK] Multi-model system initialized
+
+
+[OK] Flask server starting on http://0.0.0.0:5000
+[INFO] Chat endpoint: POST /api/chat
+[INFO] Chat greeting: POST /api/chat/greeting
+
+ * Serving Flask app 'app'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+127.0.0.1 - - [12/Feb/2026 14:04:27] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:04:28] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:05:05] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:06:01] "GET / HTTP/1.1" 404 -
+127.0.0.1 - - [12/Feb/2026 14:06:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [12/Feb/2026 14:07:09] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:07:10] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:08:22] "POST /api/chat HTTP/1.1" 503 -
+127.0.0.1 - - [12/Feb/2026 14:08:22] "GET /api/stats/total-users HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:08:40] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:08:41] "OPTIONS /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:08:55] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 14:11:49] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:00:48] "GET / HTTP/1.1" 404 -
+127.0.0.1 - - [12/Feb/2026 15:02:23] "POST /api/auth/login HTTP/1.1" 401 -
+127.0.0.1 - - [12/Feb/2026 15:02:59] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:03:48] "POST /api/auth/register HTTP/1.1" 404 -
+127.0.0.1 - - [12/Feb/2026 15:12:09] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:12:10] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:12:11] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:12:53] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:15:04] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:15:56] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:16:09] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:16:28] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:16:29] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:12] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:12] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:13] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:13] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:43] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:43] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:45] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:46] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:19:46] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:25:07] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:25:07] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:25:11] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:25:11] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:25:13] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:20] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:28] "GET /api/history/get?email=test@example.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:28] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:28] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:28] "GET /api/profile/accuracy?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:28] "GET /api/alerts/by-location?email=test@example.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:28] "GET /api/stats/total-users HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:34] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:36] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:37] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:47] "GET /api/profile/get?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:47] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:28:47] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:00] "GET /api/history/get?email=test@example.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:00] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:00] "GET /api/profile/accuracy?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:00] "GET /api/stats/total-users HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    result = multi_model_manager.predict_two_stage(image)
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    disease_result = self.predict_single_model(disease_model_name, image)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:29:08] "POST /predict HTTP/1.1" 500 -
+127.0.0.1 - - [12/Feb/2026 15:29:21] "GET /api/history/get?email=test@example.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:21] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:21] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:21] "GET /api/profile/accuracy?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:21] "GET /api/alerts/by-location?email=test@example.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:29:21] "GET /api/stats/total-users HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    result = multi_model_manager.predict_two_stage(image)
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    disease_result = self.predict_single_model(disease_model_name, image)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:29:26] "POST /predict HTTP/1.1" 500 -
+127.0.0.1 - - [12/Feb/2026 15:31:17] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:31:19] "POST /api/auth/login HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    result = multi_model_manager.predict_two_stage(image)
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    """
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:32:08] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    result = multi_model_manager.predict_two_stage(image)
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    """
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:32:29] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    result = multi_model_manager.predict_two_stage(image)
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    """
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:36:34] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    result = multi_model_manager.predict_two_stage(image)
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:38:58] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    try:
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:40:21] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    try:
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:43:26] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    # Run two-stage prediction
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:44:29] "POST /predict HTTP/1.1" 500 -
+127.0.0.1 - - [12/Feb/2026 15:45:26] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:26] "GET /api/alerts/by-location?email=test@example.com&limit=1 HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    # Run two-stage prediction
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:45:29] "POST /predict HTTP/1.1" 500 -
+127.0.0.1 - - [12/Feb/2026 15:45:46] "GET /api/history/get?email=test@example.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:46] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:46] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:47] "GET /api/profile/accuracy?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:47] "GET /api/alerts/by-location?email=test@example.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:47] "GET /api/stats/total-users HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:48] "GET /api/profile/get?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:48] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:48] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:52] "GET /api/history/get?email=test@example.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:52] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:52] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:52] "GET /api/profile/accuracy?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:52] "GET /api/alerts/by-location?email=test@example.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:52] "GET /api/stats/total-users HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:57] "GET /api/profile/get?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:57] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:45:57] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:02] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:03] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:03] "GET /api/history/get?email=test@example.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:03] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:03] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:03] "GET /api/profile/accuracy?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:03] "GET /api/alerts/by-location?email=test@example.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:03] "GET /api/stats/total-users HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:04] "GET /api/profile/get?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:04] "GET /api/profile/notification-preference?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:04] "GET /api/profile/stats?email=test@example.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:29] "OPTIONS /api/auth/signup HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:29] "POST /api/auth/signup HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:41] "OPTIONS /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:42] "POST /api/auth/login HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:42] "GET /api/history/get?email=abcd@gmail.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:42] "GET /api/profile/stats?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:42] "GET /api/profile/notification-preference?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:42] "GET /api/profile/accuracy?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:42] "GET /api/alerts/by-location?email=abcd@gmail.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:46:42] "GET /api/stats/total-users HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:47:08] "GET /api/history/get?email=abcd@gmail.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:47:08] "GET /api/profile/stats?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:47:08] "GET /api/profile/notification-preference?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:47:08] "GET /api/profile/accuracy?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:47:08] "GET /api/alerts/by-location?email=abcd@gmail.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 15:47:08] "GET /api/stats/total-users HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    # Run two-stage prediction
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:47:17] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    # Run two-stage prediction
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:47:51] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    # Run two-stage prediction
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:48:28] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    # Use EfficientNet preprocessing (same as model was trained with)
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 15:49:22] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 156, in predict
+    image_file = request.files['image']
+  File "C:\Users\tapaj\AppData\Local\Programs\Python\Python310\lib\site-packages\PIL\Image.py", line 3579, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x0000021525706890>
+127.0.0.1 - - [12/Feb/2026 16:08:45] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    print(f"Image hash: {hash(image.tobytes())}")  # To verify different images
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    'error': f'Disease model failed for crop: {crop_name}',
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 16:08:53] "POST /predict HTTP/1.1" 500 -
+127.0.0.1 - - [12/Feb/2026 16:12:51] "GET /api/history/get?email=abcd@gmail.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:51] "GET /api/profile/stats?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:51] "GET /api/profile/notification-preference?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:51] "GET /api/profile/accuracy?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:51] "GET /api/alerts/by-location?email=abcd@gmail.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:51] "GET /api/stats/total-users HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:53] "GET /api/history/get?email=abcd@gmail.com&limit=3 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:53] "GET /api/profile/stats?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:53] "GET /api/profile/notification-preference?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:53] "GET /api/profile/accuracy?email=abcd@gmail.com HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:53] "GET /api/alerts/by-location?email=abcd@gmail.com&limit=1 HTTP/1.1" 200 -
+127.0.0.1 - - [12/Feb/2026 16:12:53] "GET /api/stats/total-users HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+    print(f"Image hash: {hash(image.tobytes())}")  # To verify different images
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    'error': f'Disease model failed for crop: {crop_name}',
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 16:12:58] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 156, in predict
+  File "C:\Users\tapaj\AppData\Local\Programs\Python\Python310\lib\site-packages\PIL\Image.py", line 3579, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x0000021523CB9260>
+127.0.0.1 - - [12/Feb/2026 16:21:16] "POST /predict HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "D:\model\MVP_Trail-main\backend\app.py", line 170, in predict
+  File "D:\model\MVP_Trail-main\backend\model_manager.py", line 314, in predict_two_stage
+    'success': False,
+AttributeError: 'MultiModelManager' object has no attribute 'predict_single_model'
+127.0.0.1 - - [12/Feb/2026 16:21:40] "POST /predict HTTP/1.1" 500 -

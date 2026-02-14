@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+models/*.h5
+*.h5
+.keras
+models/*.keras
+models/*.pt
+models/*.pth
+*.pt
+*.pth
+.DS_Store
+
+# SQLite database files
+*.db
+*.db-journal

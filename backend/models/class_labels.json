@@ -1,0 +1,61 @@
+{
+  "rice_potato": [
+    "Potato_Bacteria",
+    "Potato_Fungi",
+    "Potato_Healthy",
+    "Potato_Nematode",
+    "Potato_Phytopthora",
+    "Potato_Virus",
+    "Rice_Bacterial_Leaf_Blight",
+    "Rice_Brown_Spot",
+    "Rice_Healthy",
+    "Rice_Leaf_Blast",
+    "Rice_Leaf_Scald",
+    "Rice_Sheath_Blight"
+  ],
+  "corn_blackgram": [
+    "Blackgram_Anthracnose",
+    "Blackgram_Healthy",
+    "Blackgram_LeafCrinckle",
+    "Blackgram_PowderyMildew",
+    "Blackgram_YellowMosaic",
+    "Corn_Blight",
+    "Corn_CommonRust",
+    "Corn_GrayLeafSpot",
+    "Corn_Healthy"
+  ],
+  "tomato_cotton": [
+    "Healthy",
+    "Tomato_Early_Blight",
+    "Tomato_Late_Blight",
+    "Tomato_Leaf_Mold",
+    "Tomato_Septoria_Leaf_Spot",
+    "Tomato_Bacterial_Spot",
+    "Cotton_Bacterial_Blight",
+    "Cotton_Leaf_Curl",
+    "Cotton_Alternaria",
+    "Cotton_Grey_Mildew"
+  ],
+  "wheat_pumpkin": [
+    "Pumpkin_Bacterial_Leaf_Spot",
+    "Pumpkin_Downy_Mildew",
+    "Pumpkin_Healthy",
+    "Pumpkin_Mosaic_Disease",
+    "Pumpkin_Powdery_Mildew",
+    "Wheat_Aphid",
+    "Wheat_Black_Rust",
+    "Wheat_Blast",
+    "Wheat_Brown_Rust",
+    "Wheat_Common_Root_Rot",
+    "Wheat_Fusarium_Head_Blight",
+    "Wheat_Healthy",
+    "Wheat_Leaf_Blight",
+    "Wheat_Mildew",
+    "Wheat_Mite",
+    "Wheat_Septoria",
+    "Wheat_Smut",
+    "Wheat_Stem_fly",
+    "Wheat_Tan_spot",
+    "Wheat_Yellow_Rust"
+  ]
+}

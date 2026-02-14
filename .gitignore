@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Environment variables (contains sensitive API keys)
+.env
+.env.local
+backend/.env
+
+# Build output
+dist/
+build/
+ 
+ .venv/
+ venv/
+ 
+ backend/models/*.h5
+ backend/models/*.keras
+ backend/models/*.pt
+ backend/models/*.pth

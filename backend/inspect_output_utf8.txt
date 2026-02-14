@@ -1,0 +1,12 @@
+
+--- Latest 10 Scan Records ---
+ID: 13, Email: 'mahalingm0@gmail.com', Disease: Tomato_Late_Blight, Risk: High, Health: Diseased, Date: 2026-02-10 13:52:58
+ID: 12, Email: 'mahalingm0@gmail.com', Disease: Tomato_Early_Blight, Risk: High, Health: Diseased, Date: 2026-02-10 13:49:50
+ID: 11, Email: 'mahalingm0@gmail.com', Disease: Healthy, Risk: Safe, Health: Healthy, Date: 2026-02-10 13:37:09
+ID: 10, Email: 'mahalingm0@gmail.com', Disease: Cotton_Bacterial_Blight, Risk: None, Health: None, Date: 2026-02-10 13:11:47
+ID: 9, Email: 'mahalingm0@gmail.com', Disease: Healthy, Risk: None, Health: None, Date: 2026-02-10 13:08:49
+ID: 8, Email: 'mahalingm0@gmail.com', Disease: Blackgram_Yellow_Mosaic, Risk: None, Health: None, Date: 2026-02-08 10:51:09
+ID: 7, Email: 'mahalingm0@gmail.com', Disease: Blackgram_Yellow_Mosaic, Risk: None, Health: None, Date: 2026-02-08 08:51:30
+ID: 6, Email: 'mahalingm0@gmail.com', Disease: Cotton_Leaf_Curl, Risk: None, Health: None, Date: 2026-02-08 08:38:27
+ID: 5, Email: 'mahalingm0@gmail.com', Disease: Blackgram_Yellow_Mosaic, Risk: None, Health: None, Date: 2026-02-08 08:32:32
+ID: 4, Email: 'mahalingm0@gmail.com', Disease: Tomato_Septoria_Leaf_Spot, Risk: None, Health: None, Date: 2026-02-08 08:11:02
