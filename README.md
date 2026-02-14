@@ -1,84 +1,216 @@
-# Agridetect AI �
+🌿 AgriDetect-AI
 
-Agridetect AI is an AI-powered crop health assistant that detects plant diseases from images, provides actionable recommendations, and helps farmers track scans, alerts, and history. It combines local ML inference with a conversational assistant for guidance.
+AgriDetect-AI is an AI-powered plant disease detection web application designed to help farmers and agricultural enthusiasts identify crop diseases from leaf images. The system uses Machine Learning models to analyze uploaded images and provides disease predictions along with helpful recommendations.
 
-This project is part of my learning journey in **full-stack development** and **real-world project deployment**.
+🚀 Features
 
----
+📸 Upload plant leaf images for disease detection
 
-## 🚀 Highlights
- 
-- Image-based disease diagnosis with local ML models
-- Location and weather-aware tips and insights
-- Multilingual UI (English and Indian languages)
-- Voice input/output for accessibility
-- History, alerts, and community views
+🤖 AI-based disease prediction using trained ML models
 
----
+📊 Dashboard with scan results
 
-## 📌 Key Features
- 
-- Upload and scan crop images for instant results
-- Dashboard with recent scans and alerts
-- Chat assistant backed by Gemini for agronomy guidance
-- Privacy-conscious: models and venv stay out of Git
+💬 AI Chat Assistant for agriculture guidance
 
----
+🌦️ Weather-aware recommendations (if configured)
 
-## 🛠️ Tech Stack
+🗂️ Scan history tracking
 
-### Frontend
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
+🔐 Secure backend with environment variable configuration
 
-### Backend
-- Flask (Python) API
-- SQLite database (agridetect.db)
-- Local ML models (.h5/.pt placed under backend/models)
-- Gemini-powered chat assistant
+🌐 Modern and responsive UI
 
-### Tools & Deployment
-- Git & GitHub
-- Vercel (deployment)
-- npm
- 
----
- 
-## ⚙️ Setup
- 
-### Backend
-- Create backend/.env and set GEMINI_API_KEY
-- Place model files under backend/models (not stored in Git)
-- Install deps: `pip install -r backend/requirements.txt`
-- Run: `python backend/app.py`
- 
-### Frontend
-- Install deps: `npm install`
-- Run dev: `npm run dev`
- 
-### Repo Policy
-- Models and virtual environments are not committed
-- See .gitignore and backend/.gitignore for excluded paths
- 
----
- 
----
+🏗️ Tech Stack
+Frontend
 
-## 📂 Project Structure
+React 18
 
-```text
-Agridetect-AI/
-│
-├── public/                # Static assets
-├── src/                   # React source code
-│   ├── components/        # Reusable UI components
-│   ├── pages/             # Application pages
-│   └── main.tsx           # Entry point
-│
-├── backend/               # Flask API + models (local only)
-├── .gitignore             # Git ignored files
-├── package.json           # Project dependencies
-├── vite.config.ts         # Vite configuration
-└── README.md              # Project documentation
+TypeScript
+
+Vite
+
+Tailwind CSS
+
+Backend
+
+Python
+
+Flask
+
+SQLite Database
+
+TensorFlow / Keras (.h5 models)
+
+Gemini API (for chatbot)
+
+Deployment
+
+GitHub
+
+Render / Vercel (optional deployment platforms)
+
+📂 Project Structure
+
+AgriDetect-AI/
+
+backend/
+    models/ # Trained ML model files (.h5)
+    app.py # Main Flask application
+    chat_service.py # Chat assistant logic
+    database.py # Database initialization
+    requirements.txt # Python dependencies
+
+public/ # Static frontend assets
+
+src/
+    components/ # Reusable React components
+    pages/ # Application pages
+    App.tsx # Main React App
+    main.tsx # Entry point
+
+.env.example # Environment variables template
+package.json # Node dependencies
+tailwind.config.ts # Tailwind configuration
+vite.config.ts # Vite configuration
+README.md
+
+⚙️ Installation & Setup
+1️⃣ Clone the Repository
+
+git clone https://github.com/mahal7446/AgriDetect-AI.git
+
+cd AgriDetect-AI
+
+🐍 Backend Setup
+Step 1: Navigate to backend
+
+cd backend
+
+Step 2: Create virtual environment (recommended)
+
+python -m venv .venv
+
+For Windows:
+.venv\Scripts\activate
+
+For Linux/Mac:
+source .venv/bin/activate
+
+Step 3: Install dependencies
+
+pip install -r requirements.txt
+
+Step 4: Setup environment variables
+
+Create a .env file inside the backend folder and add:
+
+GEMINI_API_KEY=your_api_key_here
+
+Step 5: Add ML Models
+
+Place your trained .h5 model files inside:
+
+backend/models/
+
+Step 6: Run backend server
+
+python app.py
+
+Backend runs on:
+http://localhost:5000
+
+⚛️ Frontend Setup
+Step 1: Go to root directory
+
+cd ..
+
+Step 2: Install dependencies
+
+npm install
+
+Step 3: Run development server
+
+npm run dev
+
+Frontend runs on:
+http://localhost:5173
+
+🧪 How to Use
+
+Start backend server.
+
+Start frontend server.
+
+Open the frontend in your browser.
+
+Upload a plant leaf image.
+
+View prediction results.
+
+Use the AI chatbot for further assistance.
+
+🔐 Environment Variables
+
+GEMINI_API_KEY – API key for chatbot integration
+
+📦 Requirements
+
+Python 3.9+
+
+Node.js 18+
+
+pip
+
+npm
+
+🚀 Deployment (Optional)
+
+Frontend:
+
+Vercel
+
+Netlify
+
+Render
+
+Backend:
+
+Render
+
+Railway
+
+Any VPS server
+
+Make sure environment variables are configured properly during deployment.
+
+🤝 Contributing
+
+Fork the repository
+
+Create a new branch
+
+Make changes
+
+Submit a Pull Request
+
+📜 License
+
+This project currently does not include a license file.
+You may consider adding an MIT License for open-source usage.
+
+👨‍💻 Author
+
+Mahaling S M
+GitHub: https://github.com/mahal7446
+
+🌱 Future Improvements
+
+Multi-language support
+
+More crop models
+
+Real-time weather API integration
+
+Mobile-friendly PWA version
+
+Cloud model hosting
