@@ -94,6 +94,8 @@ GEMINI_API_KEY=your_gemini_api_key_here
 **Frontend (`.env`):**
 ```env
 VITE_API_URL=http://localhost:5000
+
+VITE_OPENWEATHER_API_KEY=your_openweather_api_key_here
 ```
 
 ---
