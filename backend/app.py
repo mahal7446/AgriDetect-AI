@@ -1126,4 +1126,4 @@ if __name__ == '__main__':
     print(f"[INFO] Chat greeting: POST /api/chat/greeting\n")
     
     # Run Flask server
-    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
+    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=True)

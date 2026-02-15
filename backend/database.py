@@ -492,9 +492,7 @@ def get_alerts_by_location(user_email, limit=20):
                     normalized_alert_district = normalize_district_name(alert_district) if alert_district else None
                     
                     # Match if districts are the same (after normalization)
-                    if (normalized_user_district == normalized_alert_district or 
-                        (user_district and user_district in alert_location.lower()) or 
-                        (alert_district and alert_district in user_address.lower())):
+                    if normalized_user_district == normalized_alert_district:
                         
                         filtered_alerts.append({
                             'id': row['id'],
@@ -511,25 +509,6 @@ def get_alerts_by_location(user_email, limit=20):
                 if len(filtered_alerts) >= limit:
                     break
             
-            # 3. Fallback: if still no alerts (or very few), pad with recent ones
-            if len(filtered_alerts) < 5:
-                already_included = {a['id'] for a in filtered_alerts}
-                for row in rows:
-                    if row['id'] not in already_included:
-                        filtered_alerts.append({
-                            'id': row['id'],
-                            'farmerName': row['farmer_name'],
-                            'location': row['location'],
-                            'diseaseReported': row['disease_reported'],
-                            'description': row['description'],
-                            'preventionMethods': row['prevention_methods'],
-                            'imageUrl': row['image_url'],
-                            'userEmail': row['user_email'],
-                            'createdAt': row['created_at']
-                        })
-                    if len(filtered_alerts) >= limit:
-                        break
-
             return filtered_alerts
             
     except Exception as e:
