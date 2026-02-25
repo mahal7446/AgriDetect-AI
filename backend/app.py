@@ -1091,9 +1091,9 @@ if __name__ == '__main__':
     except Exception as e:
         print(f"[WARNING] Chat service not available: {str(e)}")
     
-    print(f"\n[OK] Flask server starting on http://0.0.0.0:5000")
+    print(f"\n[OK] Flask server starting on http://0.0.0.0:7860")
     print(f"[INFO] Chat endpoint: POST /api/chat")
     print(f"[INFO] Chat greeting: POST /api/chat/greeting\n")
     
-    # Run Flask server
-    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
+    # Run Flask server (port 7860 for Hugging Face Spaces compatibility)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 7860)), debug=True, use_reloader=False)

@@ -1,4 +1,5 @@
 # Fixed Working Model Manager - Clean Implementation
+# Supports local files and Google Drive auto-download for Hugging Face deployment
 
 import os
 import json
@@ -9,15 +10,94 @@ from tensorflow import keras
 import torch
 import torch.nn.functional as F
 
+# ---------------------------------------------------------------------------
+# Google Drive download helpers (used when model files are not present locally)
+# ---------------------------------------------------------------------------
+
+def _extract_drive_id(value: str) -> str:
+    """Accept either a raw file-id or a full Google Drive URL and return the id."""
+    if value and 'drive.google.com' in value:
+        # https://drive.google.com/file/d/<ID>/...
+        parts = value.split('/d/')
+        if len(parts) > 1:
+            return parts[1].split('/')[0]
+    return value  # already a plain id
+
+
+def download_from_drive(file_id: str, output_path: str) -> None:
+    """Download a file from Google Drive using *gdown* if it doesn't exist locally."""
+    if os.path.exists(output_path):
+        return
+    try:
+        import gdown
+    except ImportError:
+        print("[WARNING] gdown not installed – skipping download for", output_path)
+        return
+    file_id = _extract_drive_id(file_id)
+    url = f"https://drive.google.com/uc?id={file_id}"
+    print(f"[INFO] Downloading {os.path.basename(output_path)} from Google Drive …")
+    gdown.download(url, output_path, quiet=False)
+
+
+# Mapping: env-var name  →  local filename
+_DRIVE_MODEL_MAP = {
+    'DRIVE_CROP_CLASSIFIER_ID': 'crop_classifier_new.h5',
+    'DRIVE_MODEL1_ID':          'Model1(Rice and Potato).h5',
+    'DRIVE_MODEL2_ID':          'Model2(Corn and Blackgram).h5',
+    'DRIVE_MODEL3_ID':          'Model3(Tomato and Cotton).pt',
+    'DRIVE_MODEL4_ID':          'Model4(Wheat and Pumpkin).h5',
+}
+
+
+def ensure_models_downloaded() -> str:
+    """Make sure the models directory exists and every expected model file is present.
+
+    Files that already exist locally are never re-downloaded.
+    Returns the absolute path to the models directory.
+    """
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    models_dir = os.path.join(base_dir, 'models')
+    os.makedirs(models_dir, exist_ok=True)
+
+    # Also ensure the label JSON files are present (they are small and usually
+    # committed alongside the code, so we only download model weights).
+    for env_var, filename in _DRIVE_MODEL_MAP.items():
+        file_id = os.environ.get(env_var, '')
+        if not file_id:
+            continue  # env var not set – assume local file is present
+        output_path = os.path.join(models_dir, filename)
+        download_from_drive(file_id, output_path)
+
+    return models_dir
+
+
 class WorkingModelManager:
     def __init__(self):
-        """Clean, working model manager"""
+        """Clean, working model manager with lazy loading support."""
         self.models = {}
         self.model_types = {}
         self.input_sizes = {}
         self.confidence_threshold = 0.85
         self.labels = {}
-        
+        self.crop_classifier = None
+        self.crop_input_size = (224, 224)
+        self.crop_names = []
+        self._models_loaded = False
+        self._crop_loaded = False
+
+        # Ensure model files are available (downloads from Drive on HF, no-op locally)
+        ensure_models_downloaded()
+
+    # ------------------------------------------------------------------
+    # Lazy model loading
+    # ------------------------------------------------------------------
+
+    def load_models_if_needed(self):
+        """Load disease-detection models on first use (lazy initialization)."""
+        if self._models_loaded:
+            return
+        self._models_loaded = True
+
         try:
             base_dir = os.path.dirname(__file__)
             models_dir = os.path.join(base_dir, 'models')
@@ -118,11 +198,16 @@ class WorkingModelManager:
                 print("[WARNING] class_labels.json not found")
         except Exception as e:
             print(f"[ERROR] Failed to initialize models: {str(e)}")
+
+    def _load_crop_classifier_if_needed(self):
+        """Load crop classifier on first use (lazy initialization)."""
+        if self._crop_loaded:
+            return
+        self._crop_loaded = True
+
         try:
             base_dir = os.path.dirname(__file__)
             models_dir = os.path.join(base_dir, 'models')
-            self.crop_classifier = None
-            self.crop_input_size = (224, 224)
             crop_path = None
             for name in ['crop_classifier_new.h5', 'crop_classifier.h5']:
                 p = os.path.join(models_dir, name)
@@ -140,7 +225,6 @@ class WorkingModelManager:
                 except Exception:
                     pass
                 names_path = os.path.join(models_dir, 'class_names.json')
-                self.crop_names = []
                 if os.path.exists(names_path):
                     with open(names_path, 'r', encoding='utf-8') as f:
                         self.crop_names = json.load(f)
@@ -150,8 +234,26 @@ class WorkingModelManager:
         except Exception as e:
             print(f"[WARNING] Failed to initialize crop classifier: {str(e)}")
     
+    @staticmethod
+    def _safeguard_resize(img: Image.Image, max_dim: int = 300) -> Image.Image:
+        """Down-scale an image so neither side exceeds *max_dim* pixels.
+
+        This reduces peak memory usage during prediction, especially on
+        CPU-only environments like Hugging Face Spaces.
+        """
+        w, h = img.size
+        if w <= max_dim and h <= max_dim:
+            return img
+        scale = min(max_dim / w, max_dim / h)
+        new_size = (int(w * scale), int(h * scale))
+        return img.resize(new_size, Image.LANCZOS)
+
     def predict(self, image):
         try:
+            # Lazy-load disease models on first prediction
+            if not self.models:
+                self.load_models_if_needed()
+
             if not self.models:
                 return {
                     'success': False,
@@ -183,6 +285,8 @@ class WorkingModelManager:
                 }
             if base_img.mode != 'RGB':
                 base_img = base_img.convert('RGB')
+            # Safeguard: limit image size to reduce memory on CPU-only envs
+            base_img = self._safeguard_resize(base_img, max_dim=300)
             def _norm_key_for(mk):
                 nk = mk.lower().replace('&', 'and')
                 if '(' in mk and ')' in mk:
@@ -379,6 +483,10 @@ class WorkingModelManager:
             }
     def classify_crop(self, image):
         try:
+            # Lazy-load crop classifier on first use
+            if not self._crop_loaded:
+                self._load_crop_classifier_if_needed()
+
             if isinstance(image, np.ndarray):
                 arr = image
                 if arr.ndim == 4 and arr.shape[0] == 1:
@@ -394,6 +502,8 @@ class WorkingModelManager:
                 return {'success': False, 'error': 'Unsupported image format'}
             if base_img.mode != 'RGB':
                 base_img = base_img.convert('RGB')
+            # Safeguard: limit image size to reduce memory on CPU-only envs
+            base_img = self._safeguard_resize(base_img, max_dim=300)
             if not self.crop_classifier:
                 return {'success': False, 'error': 'Crop classifier not available'}
             img_c = base_img.resize(self.crop_input_size)
@@ -420,6 +530,10 @@ class WorkingModelManager:
             return {'success': False, 'error': str(e)}
     def predict_with_model(self, image, target_norm_key, selected_crop=None):
         try:
+            # Lazy-load disease models on first use
+            if not self.models:
+                self.load_models_if_needed()
+
             if isinstance(image, np.ndarray):
                 arr = image
                 if arr.ndim == 4 and arr.shape[0] == 1:
@@ -435,6 +549,8 @@ class WorkingModelManager:
                 return {'success': False, 'error': 'Unsupported image format'}
             if base_img.mode != 'RGB':
                 base_img = base_img.convert('RGB')
+            # Safeguard: limit image size to reduce memory on CPU-only envs
+            base_img = self._safeguard_resize(base_img, max_dim=300)
             found = None
             for key in self.models.keys():
                 nk = key.lower()
