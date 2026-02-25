@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AgriDetect AI - Agriculture-themed Design System 
+   Earthy greens, warm browns, and nature-inspired colors
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Earthy cream/off-white background */
+    --background: 45 30% 97%;
+    --foreground: 142 25% 15%;
+
+    /* Warm cream card backgrounds */
+    --card: 45 40% 98%;
+    --card-foreground: 142 25% 15%;
+
+    --popover: 45 40% 98%;
+    --popover-foreground: 142 25% 15%;
+
+    /* Rich forest green primary */
+    --primary: 142 60% 32%;
+    --primary-foreground: 45 40% 98%;
+
+    /* Earthy beige secondary */
+    --secondary: 35 45% 88%;
+    --secondary-foreground: 142 25% 15%;
+
+    /* Light sage muted */
+    --muted: 120 15% 92%;
+    --muted-foreground: 142 15% 40%;
+
+    /* Warm terracotta accent */
+    --accent: 25 70% 55%;
+    --accent-foreground: 45 40% 98%;
+
+    /* Warning/destructive colors */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 45 40% 98%;
+
+    /* Soft earthy borders */
+    --border: 35 20% 85%;
+    --input: 35 20% 85%;
+    --ring: 142 60% 32%;
+
+    --radius: 0.75rem;
+
+    /* Custom AgriDetect colors */
+    --leaf-green: 142 60% 32%;
+    --leaf-green-light: 142 45% 45%;
+    --earth-brown: 25 35% 30%;
+    --soil: 25 25% 22%;
+    --harvest-gold: 45 85% 55%;
+    --sky-blue: 200 80% 60%;
+    --sun-yellow: 48 95% 55%;
+    --warning-orange: 35 90% 55%;
+    --success-green: 142 70% 40%;
+
+    /* Sidebar */
+    --sidebar-background: 142 25% 18%;
+    --sidebar-foreground: 45 40% 95%;
+    --sidebar-primary: 142 60% 45%;
+    --sidebar-primary-foreground: 45 40% 98%;
+    --sidebar-accent: 142 30% 25%;
+    --sidebar-accent-foreground: 45 40% 95%;
+    --sidebar-border: 142 20% 25%;
+    --sidebar-ring: 142 60% 45%;
+  }
+
+  .dark {
+    --background: 142 25% 8%;
+    --foreground: 45 30% 95%;
+
+    --card: 142 20% 12%;
+    --card-foreground: 45 30% 95%;
+
+    --popover: 142 20% 12%;
+    --popover-foreground: 45 30% 95%;
+
+    --primary: 142 55% 45%;
+    --primary-foreground: 142 25% 8%;
+
+    --secondary: 35 20% 20%;
+    --secondary-foreground: 45 30% 95%;
+
+    --muted: 142 15% 18%;
+    --muted-foreground: 120 15% 60%;
+
+    --accent: 25 65% 50%;
+    --accent-foreground: 45 40% 98%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 45 30% 95%;
+
+    --border: 142 15% 20%;
+    --input: 142 15% 20%;
+    --ring: 142 55% 45%;
+
+    --sidebar-background: 142 25% 6%;
+    --sidebar-foreground: 45 40% 95%;
+    --sidebar-primary: 142 55% 50%;
+    --sidebar-primary-foreground: 142 25% 8%;
+    --sidebar-accent: 142 20% 15%;
+    --sidebar-accent-foreground: 45 40% 95%;
+    --sidebar-border: 142 15% 15%;
+    --sidebar-ring: 142 55% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar for agriculture theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/40 rounded-full hover:bg-primary/60 transition-colors;
+  }
+}
+
+@layer utilities {
+
+  /* Gradient utilities */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--leaf-green-light)) 100%);
+  }
+
+  .gradient-earth {
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  .gradient-harvest {
+    background: linear-gradient(135deg, hsl(var(--harvest-gold)) 0%, hsl(var(--warning-orange)) 100%);
+  }
+
+  .gradient-sky {
+    background: linear-gradient(180deg, hsl(var(--sky-blue)) 0%, hsl(200 60% 85%) 100%);
+  }
+
+  /* Glass effect for cards */
+  .glass {
+    @apply backdrop-blur-md bg-card/80 border border-border/50;
+  }
+
+  /* Text shadow for readability on images */
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Floating animation for chatbot */
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Pulse ring animation */
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2s ease-out infinite;
+  }
+}

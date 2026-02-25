@@ -1,0 +1,154 @@
+{
+    "nav": {
+        "dashboard": "ড্যাশবোর্ড",
+        "upload": "আপলোড",
+        "history": "ইতিহাস",
+        "community": "সম্প্রদায়",
+        "analytics": "অ্যানালিটিক্স",
+        "profile": "প্রোফাইল"
+    },
+    "dashboard": {
+        "title": "ড্যাশবোর্ড",
+        "welcome": "ফিরে স্বাগতম",
+        "quickScan": "দ্রুত স্ক্যান",
+        "viewHistory": "ইতিহাস দেখুন",
+        "recentScans": "সাম্প্রতিক স্ক্যান",
+        "stats": {
+            "totalScans": "মোট স্ক্যান",
+            "healthyPlants": "সুস্থ গাছপালা",
+            "diseasesDetected": "সনাক্তকৃত রোগ",
+            "thisMonth": "এই মাসে"
+        },
+        "uploadImage": "ছবি আপলোড করুন",
+        "noScans": "এখনও কোনো স্ক্যান নেই",
+        "startScanning": "উদ্ভিদ রোগ সনাক্ত করতে স্ক্যানিং শুরু করুন"
+    },
+    "upload": {
+        "title": "ছবি আপলোড করুন",
+        "subtitle": "রোগ সনাক্তকরণের জন্য গাছের পাতার ছবি আপলোড করুন",
+        "dragDrop": "এখানে একটি ছবি টেনে আনুন এবং ছেড়ে দিন, অথবা নির্বাচন করতে ক্লিক করুন",
+        "selectImage": "ছবি নির্বাচন করুন",
+        "analyzing": "বিশ্লেষণ করা হচ্ছে",
+        "analyze": "বিশ্লেষণ করুন",
+        "cancel": "বাতিল করুন",
+        "uploadSuccess": "ছবি সফলভাবে আপলোড হয়েছে",
+        "analysisComplete": "বিশ্লেষণ সম্পূর্ণ!",
+        "viewResults": "ফলাফল দেখুন"
+    },
+    "history": {
+        "title": "স্ক্যান ইতিহাস",
+        "subtitle": "আপনার সমস্ত পূর্ববর্তী স্ক্যান দেখুন",
+        "date": "তারিখ",
+        "cropType": "ফসলের ধরন",
+        "disease": "রোগ",
+        "confidence": "আত্মবিশ্বাস",
+        "status": "অবস্থা",
+        "healthy": "সুস্থ",
+        "diseased": "রোগাক্রান্ত",
+        "noHistory": "কোনো স্ক্যান ইতিহাস নেই",
+        "startScanning": "আপনার ইতিহাস তৈরি করতে স্ক্যানিং শুরু করুন",
+        "viewDetails": "বিবরণ দেখুন"
+    },
+    "result": {
+        "title": "স্ক্যান ফলাফল",
+        "prediction": "পূর্বাভাস",
+        "confidence": "আত্মবিশ্বাস",
+        "status": "অবস্থা",
+        "healthy": "সুস্থ",
+        "diseased": "রোগাক্রান্ত",
+        "recommendations": "সুপারিশ",
+        "scanAnother": "আরেকটি স্ক্যান",
+        "backToDashboard": "ড্যাশবোর্ডে ফিরে যান"
+    },
+    "profile": {
+        "title": "প্রোফাইল",
+        "editButton": "সম্পাদনা করুন",
+        "saveButton": "সংরক্ষণ করুন",
+        "savingButton": "সংরক্ষণ করা হচ্ছে...",
+        "noAddress": "ঠিকানা সেট করা নেই",
+        "personalInfo": {
+            "title": "ব্যক্তিগত তথ্য",
+            "description": "আপনার অ্যাকাউন্টের বিবরণ পরিচালনা করুন",
+            "fullName": "পূর্ণ নাম",
+            "email": "ইমেইল ঠিকানা",
+            "emailReadOnly": "ইমেইল পরিবর্তন করা যাবে না",
+            "phone": "ফোন নম্বর",
+            "address": "ঠিকানা",
+            "addressPlaceholder": "আপনার ঠিকানা"
+        },
+        "preferences": {
+            "title": "পছন্দসমূহ",
+            "description": "আপনার অভিজ্ঞতা কাস্টমাইজ করুন",
+            "language": "ভাষা",
+            "languageDesc": "আপনার পছন্দের ভাষা নির্বাচন করুন",
+            "notifications": "বিজ্ঞপ্তি",
+            "notificationsDesc": "রোগের সতর্কতা পান",
+            "darkMode": "ডার্ক মোড",
+            "darkModeDesc": "ডার্ক থিম টগল করুন"
+        },
+        "statistics": {
+            "title": "আপনার পরিসংখ্যান",
+            "totalScans": "মোট স্ক্যান",
+            "healthy": "সুস্থ",
+            "diseased": "রোগাক্রান্ত"
+        },
+        "signOut": "সাইন আউট",
+        "profileUpdated": "প্রোফাইল আপডেট হয়েছে!",
+        "profileUpdatedDesc": "আপনার পরিবর্তনগুলি সফলভাবে সংরক্ষিত হয়েছে",
+        "profilePictureUpdated": "প্রোফাইল ছবি আপডেট হয়েছে!",
+        "profilePictureUpdatedDesc": "আপনার প্রোফাইল ছবি সফলভাবে আপলোড করা হয়েছে",
+        "notLoggedIn": "লগ ইন করা নেই",
+        "pleaseLogin": "আপনার প্রোফাইল দেখতে লগ ইন করুন",
+        "invalidFile": "অবৈধ ফাইল",
+        "selectImage": "একটি ছবি ফাইল নির্বাচন করুন",
+        "fileTooLarge": "ফাইল খুব বড়",
+        "selectSmaller": "5MB এর চেয়ে ছোট ছবি নির্বাচন করুন",
+        "uploadFailed": "আপলোড ব্যর্থ হয়েছে",
+        "updateFailed": "আপডেট ব্যর্থ হয়েছে",
+        "loggedOut": "লগ আউট হয়েছে",
+        "seeYouSoon": "শীঘ্রই দেখা হবে!"
+    },
+    "analytics": {
+        "title": "স্মার্ট অ্যানালিটিক্স",
+        "subtitle": "আপনার খামারের জন্য তথ্য-ভিত্তিক অন্তর্দৃষ্টি",
+        "summary": {
+            "totalScans": "মোট স্ক্যান",
+            "avgHealth": "গড় স্বাস্থ্য স্কোর",
+            "alerts": "রোগের সতর্কতা",
+            "yield": "আনুমানিক ফলন"
+        },
+        "charts": {
+            "yieldForecast": "ফসলের ফলন পূর্বাভাস",
+            "diseaseTrends": "রোগের প্রবণতা (৬ মাস)",
+            "healthy": "সুস্থ",
+            "diseased": "রোগাক্রান্ত",
+            "yield": "ফলন (%)"
+        },
+        "reports": {
+            "title": "সাম্প্রতিক মাঠ প্রতিবেদন",
+            "scanId": "স্ক্যান আইডি",
+            "date": "তারিখ",
+            "crop": "ফসলের ধরন",
+            "diagnosis": "রোগ নির্ণয়",
+            "risk": "ঝুঁকির মাত্রা"
+        },
+        "risk": {
+            "safe": "নিরাপদ",
+            "medium": "মাধ্যম",
+            "high": "উচ্চ ঝুঁকি"
+        }
+    },
+    "common": {
+        "loading": "লোড হচ্ছে...",
+        "error": "ত্রুটি",
+        "success": "সফলতা",
+        "cancel": "বাতিল করুন",
+        "save": "সংরক্ষণ করুন",
+        "delete": "মুছে ফেলুন",
+        "edit": "সম্পাদনা করুন",
+        "back": "পিছনে",
+        "next": "পরবর্তী",
+        "submit": "জমা দিন",
+        "close": "বন্ধ করুন"
+    }
+}
